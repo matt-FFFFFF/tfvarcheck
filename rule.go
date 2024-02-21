@@ -26,24 +26,24 @@ type VarCheckRule struct {
 
 // NewAVMInterfaceRule returns a new rule with the given interface.
 // The data is taken from the embedded interfaces.AVMInterface.
-func (t *VarCheckRule) Name() string {
-	return t.vc.Name
+func (r *VarCheckRule) Name() string {
+	return r.vc.Name
 }
 
-func (t *VarCheckRule) Link() string {
-	return t.vc.Link
+func (r *VarCheckRule) Link() string {
+	return r.vc.Link
 }
 
 // Enabled returns whether the rule is enabled.
 // This is sourced from the embedded interfaces.AVMInterface.
-func (t *VarCheckRule) Enabled() bool {
-	return t.vc.Enabled
+func (r *VarCheckRule) Enabled() bool {
+	return r.vc.Enabled
 }
 
 // Severity returns the severity of the rule.
 // Currently all interfaces have severity ERROR.
-func (t *VarCheckRule) Severity() tflint.Severity {
-	return tflint.ERROR
+func (r *VarCheckRule) Severity() tflint.Severity {
+	return r.vc.Severity
 }
 
 // Check checks whether the module satisfies the interface.

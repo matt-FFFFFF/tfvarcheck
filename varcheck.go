@@ -18,7 +18,7 @@ type VarCheck struct {
 	Nullable bool            // Whether the interface is nullable.
 	Type     string          // String representing the type value.
 	Severity tflint.Severity // Severity of the rule.
-	//TypeStrong
+	TypeExpr hcl.Expression  // HCL expression representing the type value.
 }
 
 // TypeExpression returns an HCL expression that represents the interface type.

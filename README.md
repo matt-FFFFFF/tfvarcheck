@@ -1,0 +1,1 @@
+# TFLint Variable Check Extension
