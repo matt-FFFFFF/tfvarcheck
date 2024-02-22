@@ -24,6 +24,13 @@ type VarCheckRule struct {
 	vc VarCheck
 }
 
+// NewVarCheckRule returns a new rule with the given variable.
+func NewVarCheckRule(vc VarCheck) *VarCheckRule {
+	return &VarCheckRule{
+		vc: vc,
+	}
+}
+
 // NewAVMInterfaceRule returns a new rule with the given interface.
 // The data is taken from the embedded interfaces.AVMInterface.
 func (r *VarCheckRule) Name() string {
@@ -61,33 +68,9 @@ func (t *VarCheckRule) Check(r tflint.Runner) error {
 	}
 
 	// Define the schema that we want to pull out of the module content.
-	body, err := r.GetModuleContent(&hclext.BodySchema{
-		Blocks: []hclext.BlockSchema{
-			{
-				Type:       "variable",
-				LabelNames: []string{"name"},
-				Body: &hclext.BodySchema{
-					Attributes: []hclext.AttributeSchema{
-						{Name: "type"},
-						{Name: "default"},
-						{Name: "nullable"},
-					},
-					// We do not do anything with the validation data at the moment.
-					Blocks: []hclext.BlockSchema{
-						{
-							Type: "validation",
-							Body: &hclext.BodySchema{
-								Attributes: []hclext.AttributeSchema{
-									{Name: "condition"},
-									{Name: "error_message"},
-								},
-							},
-						},
-					},
-				},
-			},
-		},
-	}, &tflint.GetModuleContentOption{ExpandMode: tflint.ExpandModeNone})
+	body, err := r.GetModuleContent(
+		&variableBodySchema,
+		&tflint.GetModuleContentOption{ExpandMode: tflint.ExpandModeNone})
 	if err != nil {
 		return err
 	}
@@ -188,4 +171,32 @@ func (t *VarCheckRule) Check(r tflint.Runner) error {
 		// TODO: Check validation rules.
 	}
 	return nil
+}
+
+var variableBodySchema = hclext.BodySchema{
+	Blocks: []hclext.BlockSchema{
+		{
+			Type:       "variable",
+			LabelNames: []string{"name"},
+			Body: &hclext.BodySchema{
+				Attributes: []hclext.AttributeSchema{
+					{Name: "type"},
+					{Name: "default"},
+					{Name: "nullable"},
+				},
+				// We do not do anything with the validation data at the moment.
+				Blocks: []hclext.BlockSchema{
+					{
+						Type: "validation",
+						Body: &hclext.BodySchema{
+							Attributes: []hclext.AttributeSchema{
+								{Name: "condition"},
+								{Name: "error_message"},
+							},
+						},
+					},
+				},
+			},
+		},
+	},
 }
