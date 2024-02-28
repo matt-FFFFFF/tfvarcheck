@@ -10,7 +10,8 @@ permissions:
   contents: read
 
 jobs:
-  lint:
+  test:
+    name: test & lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,6 +21,9 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version-file: ./go.mod
+
+      - name: go test
+        run: go test -v ./...
 
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v4
