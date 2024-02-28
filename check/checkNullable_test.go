@@ -46,7 +46,7 @@ func TestCheckNullable(t *testing.T) {
 			Expected: false,
 		},
 		{
-			Name:     "got is an incorrect primative type",
+			Name:     "got is an incorrect primitive type",
 			Got:      cty.StringVal("test"),
 			Want:     true,
 			Expected: false,
@@ -57,7 +57,7 @@ func TestCheckNullable(t *testing.T) {
 		tc := tc
 		t.Run(tc.Name, func(t *testing.T) {
 			t.Parallel()
-			result := check.CheckNullable(tc.Got, tc.Want)
+			result := check.Nullable(tc.Got, tc.Want)
 			assert.Equal(t, tc.Expected, result)
 		})
 	}

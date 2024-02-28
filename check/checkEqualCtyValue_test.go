@@ -70,7 +70,7 @@ func TestCheckEqualCtyValue(t *testing.T) {
 		t.Run(tc.Name, func(t *testing.T) {
 			t.Parallel()
 
-			ret := check.CheckEqualCtyValue(tc.Got, tc.Want)
+			ret := check.EqualCtyValue(tc.Got, tc.Want)
 			assert.Equal(t, tc.Expected, ret)
 		})
 	}

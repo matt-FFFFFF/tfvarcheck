@@ -55,7 +55,7 @@ func TestCheckEqualTypeConstraints(t *testing.T) {
 			if diags.HasErrors() {
 				panic(diags)
 			}
-			res := check.CheckEqualTypeConstraints(gotType, wantType)
+			res := check.EqualTypeConstraints(gotType, wantType)
 			if res != tc.Result {
 				t.Errorf("Test %s: Expected %v, got %v", tc.Name, tc.Result, res)
 			}
