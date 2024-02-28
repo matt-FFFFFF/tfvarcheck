@@ -1,0 +1,37 @@
+# Visit https://golangci-lint.run/ for usage documentation
+# and information on other useful linters
+run:
+  modules-download-mode: readonly
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
+
+linters:
+  disable-all: true
+  enable:
+    - durationcheck
+    - errcheck
+    - exportloopref
+    - forcetypeassert
+    - godot
+    - gofmt
+    - gosimple
+    - gosec
+    - govet
+    - revive
+    - prealloc
+    - ineffassign
+    - makezero
+    - misspell
+    - nilerr
+    - predeclared
+    - staticcheck
+    - tenv
+    - unconvert
+    - unparam
+    - unused
+    - vet
+    - nilerr
+    - nilnil
+    - nakedret
