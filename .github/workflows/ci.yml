@@ -21,6 +21,9 @@ jobs:
         with:
           go-version-file: ./go.mod
 
+      - name: go test
+        run: go test -v ./...
+
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v4
         with:
