@@ -10,7 +10,8 @@ permissions:
   contents: read
 
 jobs:
-  lint:
+  test:
+    name: test & lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
