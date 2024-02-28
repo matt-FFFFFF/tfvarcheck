@@ -5,8 +5,8 @@ import (
 
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclsyntax"
-	"github.com/matt-FFFFFF/tflint-ext-varlint/check"
-	"github.com/matt-FFFFFF/tflint-ext-varlint/varcheck"
+	"github.com/matt-FFFFFF/tfvarcheck/check"
+	"github.com/matt-FFFFFF/tfvarcheck/varcheck"
 )
 
 func hclExpressionFromString(expr string) hcl.Expression {

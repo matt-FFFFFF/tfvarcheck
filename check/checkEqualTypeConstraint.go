@@ -3,7 +3,7 @@ package check
 import (
 	"reflect"
 
-	"github.com/matt-FFFFFF/tflint-ext-varlint/varcheck"
+	"github.com/matt-FFFFFF/tfvarcheck/varcheck"
 )
 
 // CheckEqualTypeConstraints checks if two supplied hcl Expressions are in fact type constraints,

@@ -1,4 +1,4 @@
-module github.com/matt-FFFFFF/tflint-ext-varlint
+module github.com/matt-FFFFFF/tfvarcheck
 
 go 1.22.0
 

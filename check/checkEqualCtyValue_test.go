@@ -3,7 +3,7 @@ package check_test
 import (
 	"testing"
 
-	"github.com/matt-FFFFFF/tflint-ext-varlint/check"
+	"github.com/matt-FFFFFF/tfvarcheck/check"
 	"github.com/stretchr/testify/assert"
 	"github.com/zclconf/go-cty/cty"
 )
