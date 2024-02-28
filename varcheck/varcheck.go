@@ -10,15 +10,24 @@ import (
 
 // VarCheck is the struct that represents a variable check.
 type VarCheck struct {
-	Default  cty.Value                  // Default value for the interface as a cty.Value
-	Nullable bool                       // Whether the variable should be nullable.
-	Type     TypeConstraintWithDefaults // Strong type representing the type as well as default values.
+	Default                cty.Value                  // Default value for the interface as a cty.Value
+	Nullable               bool                       // Whether the variable should be nullable.
+	TypeConstraintWithDefs TypeConstraintWithDefaults // Strong type representing the type as well as default values. Use NewTypeConstraintWithDefaultsFromExp or NewTypeConstraintWithDefaultsFromBytes to create.
 }
 
 // TypeConstraintWithDefaults represents a type constraint and default value for a Terraform variable.
 type TypeConstraintWithDefaults struct {
 	Type    cty.Type           // The type constraint, this will always have a value
 	Default *typeexpr.Defaults // The default value, this will be nil if no defaults are used in the type constraint
+}
+
+// NewVarCheck creates a new VarCheck struct.
+func NewVarCheck(ty TypeConstraintWithDefaults, def cty.Value, nullable bool) VarCheck {
+	return VarCheck{
+		Default:                def,
+		Nullable:               nullable,
+		TypeConstraintWithDefs: ty,
+	}
 }
 
 // NewVariableTypeFromExpression creates a new TypeConstraintWithDefaults from a given hcl.Expression.
