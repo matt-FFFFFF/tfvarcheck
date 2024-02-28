@@ -6,11 +6,14 @@ import (
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclsyntax"
 	"github.com/matt-FFFFFF/tflint-ext-varlint/check"
-	"github.com/matt-FFFFFF/tflint-ext-varlint/variabletype"
+	"github.com/matt-FFFFFF/tflint-ext-varlint/varcheck"
 )
 
 func hclExpressionFromString(expr string) hcl.Expression {
-	e, _ := hclsyntax.ParseExpression([]byte(expr), "test.tf", hcl.Pos{})
+	e, diags := hclsyntax.ParseExpression([]byte(expr), "test.tf", hcl.Pos{})
+	if diags.HasErrors() {
+		panic(diags)
+	}
 	return e
 }
 
@@ -44,8 +47,14 @@ func TestCheckEqualTypeConstraints(t *testing.T) {
 		tc := tc
 		t.Run(tc.Name, func(t *testing.T) {
 			t.Parallel()
-			gotType, _ := variabletype.NewVariableTypeFromExpression(tc.Got)
-			wantType, _ := variabletype.NewVariableTypeFromExpression(tc.Want)
+			gotType, diags := varcheck.NewTypeConstraintWithDefaultsFromExp(tc.Got)
+			if diags.HasErrors() {
+				panic(diags)
+			}
+			wantType, diags := varcheck.NewTypeConstraintWithDefaultsFromExp(tc.Want)
+			if diags.HasErrors() {
+				panic(diags)
+			}
 			res := check.CheckEqualTypeConstraints(gotType, wantType)
 			if res != tc.Result {
 				t.Errorf("Test %s: Expected %v, got %v", tc.Name, tc.Result, res)

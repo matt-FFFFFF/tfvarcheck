@@ -1,0 +1,14 @@
+mode: set
+github.com/matt-FFFFFF/tflint-ext-varlint/varcheck/varcheck.go:25.109,27.23 2 1
+github.com/matt-FFFFFF/tflint-ext-varlint/varcheck/varcheck.go:27.23,29.3 1 1
+github.com/matt-FFFFFF/tflint-ext-varlint/varcheck/varcheck.go:30.2,33.8 1 1
+github.com/matt-FFFFFF/tflint-ext-varlint/varcheck/varcheck.go:37.101,39.23 2 1
+github.com/matt-FFFFFF/tflint-ext-varlint/varcheck/varcheck.go:39.23,41.3 1 0
+github.com/matt-FFFFFF/tflint-ext-varlint/varcheck/varcheck.go:42.2,42.50 1 1
+github.com/matt-FFFFFF/tflint-ext-varlint/check/checkEqualCtyValue.go:5.51,8.2 2 1
+github.com/matt-FFFFFF/tflint-ext-varlint/check/checkEqualTypeConstraint.go:11.87,13.2 1 1
+github.com/matt-FFFFFF/tflint-ext-varlint/check/checkNullable.go:11.51,12.28 1 1
+github.com/matt-FFFFFF/tflint-ext-varlint/check/checkNullable.go:12.28,14.3 1 1
+github.com/matt-FFFFFF/tflint-ext-varlint/check/checkNullable.go:15.2,15.10 1 1
+github.com/matt-FFFFFF/tflint-ext-varlint/check/checkNullable.go:15.10,17.3 1 1
+github.com/matt-FFFFFF/tflint-ext-varlint/check/checkNullable.go:18.2,18.38 1 1
