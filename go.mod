@@ -4,7 +4,7 @@ go 1.22.0
 
 require (
 	github.com/hashicorp/hcl/v2 v2.20.0
-	github.com/stretchr/testify v1.8.4
+	github.com/stretchr/testify v1.9.0
 	github.com/zclconf/go-cty v1.14.3
 )
 
