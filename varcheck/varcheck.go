@@ -1,4 +1,3 @@
-// Package varcheck is the entry point of the application.
 package varcheck
 
 import (
