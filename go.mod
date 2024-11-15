@@ -3,7 +3,7 @@ module github.com/matt-FFFFFF/tfvarcheck
 go 1.22.0
 
 require (
-	github.com/hashicorp/hcl/v2 v2.20.1
+	github.com/hashicorp/hcl/v2 v2.23.0
 	github.com/stretchr/testify v1.9.0
 	github.com/zclconf/go-cty v1.15.0
 )
