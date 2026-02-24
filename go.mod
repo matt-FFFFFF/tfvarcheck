@@ -1,11 +1,11 @@
 module github.com/matt-FFFFFF/tfvarcheck
 
-go 1.22.0
+go 1.25
 
 require (
 	github.com/hashicorp/hcl/v2 v2.20.1
 	github.com/stretchr/testify v1.9.0
-	github.com/zclconf/go-cty v1.15.1
+	github.com/zclconf/go-cty v1.18.0
 )
 
 require (
